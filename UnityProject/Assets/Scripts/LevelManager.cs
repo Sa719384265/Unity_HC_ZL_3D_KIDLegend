@@ -95,4 +95,19 @@ public class LevelManager : MonoBehaviour
         StopCoroutine(ShowRevival());   // 停止協程
         panelRevival.SetActive(false);  // 隱藏
     }
+
+    ///<summary>
+    ///過關:開門、叫金幣前往玩家位置
+    ///</summary>
+    public void Pass()
+    {
+        OpenDoor();
+
+        Item[] items = FindObjectsOfType<Item>();
+
+        for (int i = 0; i < items.Length; i++)
+        {
+            items[i].pass = true;
+        }
+    }
 }

@@ -130,11 +130,17 @@ public class Player : MonoBehaviour
         }
         else
         {
+            // 1. 取得所有敵人
+            enemys = FindObjectsOfType<Enemy>();
+
+            if (enemys.Length == 0)
+            {
+                return;
+            }
             timer = 0;                              // 計時器 歸零
             ani.SetTrigger("攻擊觸發");              // 攻擊動畫
 
-            // 1. 取得所有敵人
-            enemys = FindObjectsOfType<Enemy>();
+            
 
             // 2. 取得所有敵人的距離
 
